@@ -10,6 +10,7 @@ lg.circle("line", x, y, 20)
 end
 
 function love.update()
-x = x + 1
-x = math.sin(x)
+	x = x + 10
+	if x == 600 then x = 0 end
+	
 end
