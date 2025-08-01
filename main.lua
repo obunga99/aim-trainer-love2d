@@ -1,16 +1,16 @@
 function love.load()
 lg = love.graphics
+require("player")
 
-x = 40
-y = 40
 end
 
 function love.draw()
-lg.circle("line", x, y, 20)
+	draw_player()
 end
 
-function love.update()
-	x = x + 10
-	if x == 600 then x = 0 end
-	
+function love.update(dt)
+	controll_player(dt)
+	bounds_player()
 end
+
+
