@@ -24,6 +24,10 @@ function controll_player(dt)
 	if love.keyboard.isDown("s") then
 		player.y = player.y + player.vy		
 	end
+
+	
+
+
 	
 end
 
@@ -31,6 +35,16 @@ function bounds_player()
 	if player.x + player.w >= lg.getWidth() then
 		player.x = player.x - 5
 	end
+	if player.x  <= 0 then
+		player.x = player.x + 5
+	end
+	if player.y <= 0 then
+		player.y = player.y + 5
+	end
+	if player.y + player.h >= lg.getHeight() then
+		player.y = player.y - 5
+	end
+	
 end
 
 
