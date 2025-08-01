@@ -44,6 +44,8 @@ function bounds_player()
 	if player.y + player.h >= lg.getHeight() then
 		player.y = player.y - 5
 	end
+
+
 	
 end
 
