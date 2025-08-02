@@ -5,6 +5,9 @@ require("player")
 
 obst_holder = {}
 timer = 0
+max_timer = 1
+dtimer = 0
+max_dtimer = 5
 end
 
 function love.update(dt)
@@ -21,12 +24,17 @@ function love.update(dt)
 	end
 
 	timer = timer + dt
-	if timer >= 1 then
+	dtimer = dtimer + dt
+	if timer >= max_timer then
 		table.insert(obst_holder, create_obst())
 		timer = 0
 	end
 
-
+	if dtimer >= max_dtimer then
+		dtimer = 0
+		max_dtimer = max_dtimer + 1
+		max_timer = max_timer - 0.02
+	end
 end
 
 function love.draw()
