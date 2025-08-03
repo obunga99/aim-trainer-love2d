@@ -17,10 +17,6 @@ end
 function love.update(dt)
 	stabilize_cursor()
 	love.mouse.setVisible(false)
-	if love.mouse.isDown("1") and mouse_x >= rect.x and mouse_x <= rect.x + rect.w and mouse_y >= rect.y and mouse_y <= rect.y + rect.h then
-		rect.x = math.random(50, 300)
-		rect.y = math.random(50, 60)
-	end
 	
 end
 
@@ -30,4 +26,9 @@ function love.draw()
 	init_cursor()
 end
 	
-
+function love.mousepressed()
+	if love.mouse.isDown("1") and mouse_x >= rect.x and mouse_x <= rect.x + rect.w and mouse_y >= rect.y and mouse_y <= rect.y + rect.h then
+                rect.x = math.random(50, 300)
+                rect.y = math.random(50, 60)
+        end
+end
