@@ -1,7 +1,7 @@
 function stabilize_cursor()	--put this inside the love.update()
 
 	--this also calculates the stuff concerned with the sensitivity
-cursor_size = 5
+cursor_size = 3
 mouse_x = love.mouse.getX()
 mouse_y = love.mouse.getY()
 
