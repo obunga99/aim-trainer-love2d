@@ -17,7 +17,7 @@ function love.draw()
 	--init_cursor() --draws the cursor
 end
 	
-function love.mousepressed()
-	hitscan() --method for detecting when the mouse cursor is clicking the target or in other terms shooting cuz you know this is a aim trainer
+function love.mousepressed(key, x, y)
+	hitscan(key, x, y) --method for detecting when the mouse cursor is clicking the target or in other terms shooting cuz you know this is a aim trainer
 end
 

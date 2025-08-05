@@ -19,10 +19,10 @@ function draw_target() --draws the target on the screen
 	end
 end
 
-function hitscan() --method for scanning whenever the mouse clicks one of the targets 
+function hitscan(key, x, y) --method for scanning whenever the mouse clicks one of the targets 
 	for i, target in ipairs(target) do --does the whole thing inside a forloop to make sure every target gets involved or some shit
 
-		if love.mouse.isDown("1") and mouse_x >= target.x and mouse_x <= target.x + target.w and mouse_y >= target.y and mouse_y <= target.y + target.h then --checks the collision with the mouse and a target through aab
+		if key == "1" and x >= target.x and x <= target.x + target.w and y >= target.y and y <= target.y + target.h then --checks the collision with the mouse and a target through aab
 
 			target.x = math.random(30, lg.getWidth() - 30) -- puts it again randomly
 			target.y = math.random(10, lg.getHeight() - 10)
