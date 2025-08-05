@@ -8,13 +8,13 @@ end
 function love.update(dt)
 
 	stabilize_cursor() --I dunno 
-	love.mouse.setVisible(false) -- makes the mouse invisible
+	--love.mouse.setVisible(false) -- makes the mouse invisible
 
 end
 
 function love.draw()
 	draw_target() --draws the target to the screen
-	init_cursor() --draws the cursor
+	--init_cursor() --draws the cursor
 end
 	
 function love.mousepressed()
