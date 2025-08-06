@@ -1,2 +1,2 @@
 all:
-	cp * /sdcard/lovegame
+	cp -r * /sdcard/lovegame
