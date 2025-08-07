@@ -13,6 +13,6 @@ todo:
     improve the target spawning so there is some kind of spacing in between the targets  
     ui  
     scene manager system(I really need this one now lol so I can implement the replay system)  
-    scoring system  
+    scoring system(partialy) 
     replay system  
     exercise customizer  
