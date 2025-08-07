@@ -5,6 +5,8 @@ function create_target() --a for loop to add a target object from the target tab
 		target[i] = {
 			x = math.random(30, lg.getWidth() - 30),--this make it go to the middle theoretically
 			y = math.random(10, lg.getHeight() - 10),--well this one is the actual one that goes in the middle
+			cx = x,
+			cy = y,
 			w = 34,
 			h = 34
 		

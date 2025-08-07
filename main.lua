@@ -8,13 +8,12 @@ end
 
 function love.update(dt)
 	stabilize_cursor() --I dunno 
-
-
 end
-
 function love.draw()
 	set_background()
 	draw_target() --draws the target to the screen
+	
+
 end
 	
 function love.mousepressed(x, y, key)
