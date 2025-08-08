@@ -13,7 +13,7 @@ end
 
 function set_background()
 	lg.setColor(1, 1, 1, 1)
-	lg.rectangle("fill", -20, -20, 11000, 11000)
+	lg.rectangle("fill", mouse_x - 5000, mouse_y - 5000, 11000, 11000)
 end
 
 
