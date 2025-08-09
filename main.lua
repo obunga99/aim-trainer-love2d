@@ -1,35 +1,25 @@
-function love.load()	--declaration/initialization of variables/files
-	require("cursor")
-	require("targets")
-	require("timer")
-	lg = love.graphics
-	crosshair = lg.newImage("cursor/cur.png")
-	distance = 0
-	create_target() --method from targets.lua for instantiating 5 targets
-	camera = require("libs/camera")
-	camera = camera()	
+function love.load()
+
+	scene = require("menu_scene")
+	if scene.load then scene:load() end
 end
 
 function love.update(dt)
-	stabilize_cursor() --I dunno 
-	update_score(dt)
-	camera:lookAt(mouse_x, mouse_y)
-
+	if scene.update then scene:update(dt) end
 end
+
 function love.draw()
-	camera:attach()
-	lg.draw(crosshair, mouse_x, mouse_y)
-	set_background()
-	draw_score()
-
-	draw_target() --draws the target to the screen
-	love.mouse.setRelativeMode(true)
-	lg.setColor(0, 1, 1)
-	lg.circle("fill", mouse_x, mouse_y, 5)
-	camera:detach()
+	if scene.draw then scene:draw() end
 end
-	
+
 function love.mousepressed(x, y, key)
-	hitscan(x, y, key, distance)
-end
+	change_scene(x, y, key)
+	if scene.mousepressed then scene:mousepressed() end
+	end
 
+function change_scene(x, y, key)
+	if key == 1 and x >= lg.getWidth()/2 and x <= (lg.getWidth()/2) + 100 and y >= lg.getHeight()/2 and y <= (lg.getHeight()/2) + 50 then
+		scene = require("play_scene")
+		if scene.load then scene:load() end
+	end
+end
