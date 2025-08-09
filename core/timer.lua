@@ -1,5 +1,5 @@
-score = {}
-score.timer = 40
+local score = {}
+score.timer = 10
 score.hits = 0
 score.miss = 0
 score.total = 0
@@ -16,20 +16,30 @@ function draw_score()
 	lg.print("most hits: "..score.best, mouse_x - (lg.getWidth()/2), mouse_y + 50)
 end
 
-function update_score(dt)
+function update_score(dt, play)
+	local best_hits = 0
 	score.timer = score.timer - dt
+	
 	if score.timer <= 0 then 
 
+		score.timer = 10
 		if score.hits > score.best then
 			score.best = score.hits
+			best_hits = score.best
+			play.setScene("over", {best = best_hits})
 		end
 
-		score.timer = 40
+
 		score.hits = 0
 		score.miss = 0	
 		score.total = 0
 
 	end
+
 	score.total = score.hits + score.miss
 	score.acc = (score.hits / score.total) * 100
+
+
 end
+
+

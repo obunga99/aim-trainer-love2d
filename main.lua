@@ -1,25 +1,23 @@
-function love.load()
+local SceneryInit = require("core/scenery")
+local scenery = SceneryInit(
+	{ path = "scene/menu_scene"; key = "menu"; default = "true"; },
+	{ path = "scene/play_scene"; key = "play"; },
+	{ path = "scene/over_scene"; key = "over"; }
+)
 
-	scene = require("menu_scene")
-	if scene.load then scene:load() end
+function love.load()
+	lg = love.graphics
+	scenery:load()
 end
 
 function love.update(dt)
-	if scene.update then scene:update(dt) end
+	scenery:update(dt)
 end
 
 function love.draw()
-	if scene.draw then scene:draw() end
+	scenery:draw()
 end
 
 function love.mousepressed(x, y, key)
-	change_scene(x, y, key)
-	if scene.mousepressed then scene:mousepressed() end
-	end
-
-function change_scene(x, y, key)
-	if key == 1 and x >= lg.getWidth()/2 and x <= (lg.getWidth()/2) + 100 and y >= lg.getHeight()/2 and y <= (lg.getHeight()/2) + 50 then
-		scene = require("play_scene")
-		if scene.load then scene:load() end
-	end
+	scenery:mousepressed(x, y, key)
 end

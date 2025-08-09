@@ -1,15 +1,14 @@
-local scene = {}
+local menu = {}
 
-function scene:load()
+
+function menu:load()
 	lg = love.graphics
-	
 end
 
-function scene:update(dt)
-
+function menu:update(dt)
 end
 
-function scene:draw()
+function menu:draw()
 	lg.rectangle("fill", 0, 0, 10000, 10000)
 	lg.setColor(0, 0, 0, 1)
 	lg.rectangle("fill", lg.getWidth()/2, lg.getHeight()/2, 50, 50)
@@ -17,9 +16,11 @@ function scene:draw()
 	lg.print("Play", lg.getWidth()/2, lg.getHeight()/2)
 end
 
-function scene:mousepressed(x, y, key)
+function menu:mousepressed(x, y, key)
+	if key == 1 then
+		self.setScene("play")
+	end
 end
 
 
-
-return scene
+return menu
