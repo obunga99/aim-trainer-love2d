@@ -10,11 +10,18 @@ function play:load()	--declaration/initialization of variables/files
 	distance = 0
 	create_target() --method from targets.lua for instantiating 5 targets
 	camera = camera()	
+
 end
 
 function play:update(dt)
 	stabilize_cursor() --I dunno 
-	update_score(dt, play)	
+	local isTrue = update_score(dt)
+	if isTrue == true then
+		
+		isTrue = false
+		self.setScene("over")
+
+	end
 	camera:lookAt(mouse_x, mouse_y)
 
 end
@@ -35,7 +42,6 @@ end
 function play:mousepressed(x, y, key)
 	hitscan(x, y, key, distance)
 end
-
 
 
 

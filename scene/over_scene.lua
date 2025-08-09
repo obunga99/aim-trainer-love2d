@@ -1,8 +1,8 @@
 local over = {}
 
-function over:load(args)
+function over:load()
 	lg = love.graphics
-	score = args.score 
+	Points  = 0
 end
 
 function over:update(dt)
@@ -21,7 +21,7 @@ function over:draw()
 	lg.print("Menu", 15, 60)
 
 	lg.setColor(0, 0, 0, 1)
-	lg.print("most hits: "..score, lg.getWidth()/2, lg.getHeight()/2, 0, 30, 20)
+	lg.print("most hits: "..Points, lg.getWidth()/2, lg.getHeight()/2, 0, 30, 20)
 end
 
 function over:mousepressed(x, y, key)
