@@ -13,3 +13,7 @@ todo:
     ui(its got the most barebones ui if you call it ui) 
     replay system  
     scenario customizer  
+
+
+    libraries used:  
+        hump.camera:https://github.com/vrld/hump/blob/master/camera.lua
