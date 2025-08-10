@@ -32,8 +32,7 @@ function play:draw()
 	
 	draw_target() --draws the target to the screen
 	love.mouse.setRelativeMode(true)
-	lg.setColor(0, 1, 1)
-	lg.circle("fill", mouse_x, mouse_y, 5)
+	draw_cursor()
 	draw_score()
 
 	camera:detach()
