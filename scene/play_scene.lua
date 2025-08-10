@@ -19,7 +19,7 @@ function play:update(dt)
 	if isTrue == true then
 		
 		isTrue = false
-		self.setScene("over")
+		self.setScene("menu")
 
 	end
 	camera:lookAt(mouse_x, mouse_y)

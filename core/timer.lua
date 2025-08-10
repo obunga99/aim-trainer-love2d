@@ -1,6 +1,6 @@
 score = {}
 
-score.timer = 10
+score.timer = 40
 score.hits = 0
 score.miss = 0
 score.total = 0
@@ -30,7 +30,7 @@ function update_score(dt)
 
 		
 		isHit = true	
-		score.timer = 10
+		score.timer = 40
 		score.hits = 0
 		score.miss = 0	
 		score.total = 0
