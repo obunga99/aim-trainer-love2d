@@ -17,7 +17,6 @@ function play:update(dt)
 	stabilize_cursor() --I dunno 
 	local isTrue = update_score(dt)
 	if isTrue == true then
-		
 		isTrue = false
 		self.setScene("menu")
 

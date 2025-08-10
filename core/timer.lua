@@ -26,6 +26,7 @@ function update_score(dt)
 
 		if score.hits > score.best then
 			score.best = score.hits
+			set_score = score.best
 		end
 
 		
