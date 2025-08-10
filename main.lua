@@ -1,26 +1,22 @@
-function love.load()	--declaration/initialization of variables/files
-	require("cursor")
-	require("targets")
-	require("timer")
+local SceneryInit = require("core/scenery")
+local scenery = SceneryInit(
+	{ path = "scene/menu_scene"; key = "menu"; default = "true"; },
+	{ path = "scene/play_scene"; key = "play"; }
+)
+
+function love.load()
 	lg = love.graphics
-	distance = 0
-	create_target() --method from targets.lua for instantiating 5 targets
+	scenery:load()
 end
 
 function love.update(dt)
-	stabilize_cursor() --I dunno 
-	update_score(dt)
+	scenery:update(dt)
 end
+
 function love.draw()
-	set_background()
-	draw_score()
-
-	draw_target() --draws the target to the screen
-		
-
+	scenery:draw()
 end
-	
+
 function love.mousepressed(x, y, key)
-	hitscan(x, y, key, distance)
+	scenery:mousepressed(x, y, key)
 end
-
