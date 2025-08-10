@@ -1,8 +1,10 @@
 local play = {}
+local crosshair
 function play:load()	--declaration/initialization of variables/files
 	require("/core/cursor")
 	require("/core/targets")
 	require("/core/timer")
+	crosshair = lg.newImage("cursor/cur.png")
 	camera = require("/libs/camera")
 
 	lg = love.graphics
@@ -31,7 +33,7 @@ function play:draw()
 	
 	draw_target() --draws the target to the screen
 	love.mouse.setRelativeMode(true)
-	draw_cursor()
+	draw_cursor(crosshair)
 	draw_score()
 
 	camera:detach()
