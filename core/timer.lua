@@ -10,11 +10,11 @@ score.best = 0
 
 function draw_score()
 	lg.setColor(0, 0 ,0 , 1)
-	lg.print("time: "..score.timer, mouse_x - lg.getWidth()/2, mouse_y + 10)
+	lg.print("time: "..score.timer, mouse_x - 100, mouse_y - (lg.getHeight()/2), 0, 2, 2)
 	lg.print("hits: "..score.hits, mouse_x - (lg.getWidth()/2), mouse_y + 20)
 	lg.print("miss: "..score.miss, mouse_x - (lg.getWidth()/2), mouse_y + 30)
 	lg.print("accuracy: "..score.acc, mouse_x - (lg.getWidth()/2), mouse_y + 40)
-	lg.print("most hits: "..score.best, mouse_x - (lg.getWidth()/2), mouse_y + 50)
+	lg.print("most hits: "..score.best, mouse_x - (lg.getWidth()/2), mouse_y - (lg.getHeight()/2), 0, 2, 2)
 end
 
 function update_score(dt)
