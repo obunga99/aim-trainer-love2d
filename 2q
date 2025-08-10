@@ -5,15 +5,15 @@ function play:load()	--declaration/initialization of variables/files
 	require("/core/cursor")
 	require("/core/targets")
 	require("/core/timer")
-	require("/core/get_mode")
 	crosshair = lg.newImage("cursor/cur.png")
 	camera = require("/libs/camera")
+
 	lg = love.graphics
 	crosshair = lg.newImage("/cursor/cur.png")
 	distance = 0
 	create_target() --method from targets.lua for instantiating 5 targets
 	camera = camera()
-	is_chosen = get_and_set_mode
+	
 
 end
 
@@ -37,8 +37,7 @@ function play:draw()
 	camera:attach()
 	lg.setBackgroundColor(1, 1, 1)
 	draw_target() --draws the target to the screen
-
-	if chosen == true then
+	if is_chosen == true then
 		love.mouse.setRelativeMode(true) -- for the fake fps mode
 		draw_cursor(crosshair)
 	end

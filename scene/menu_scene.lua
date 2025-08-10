@@ -1,8 +1,20 @@
 local menu = {}
+local set_mode = false
+local checkB = {
+	x = 150,
+	y = 50,
+	w = 20,
+	h = 20,
+	r = 1,
+	g = 0,
+	b = 0
+}
+
 
 
 function menu:load(args)
 	require("core/timer")
+	require("core/get_mode")
 	lg = love.graphics
 end
 
@@ -11,7 +23,7 @@ end
 
 function menu:draw()
 	love.mouse.setRelativeMode(false)
-	lg.rectangle("fill", 0, 0, 10000, 10000)
+	lg.setBackgroundColor(1, 1, 1)
 	lg.setColor(0, 0, 0, 1)
 	lg.rectangle("fill", lg.getWidth()/2, lg.getHeight()/2, 50, 50)
 	lg.setColor(1, 1, 1, 1)
@@ -19,11 +31,30 @@ function menu:draw()
 	lg.setColor(0, 0, 0, 1)
 	lg.print("most hits: "..score.best, 10, 10)
 	lg.setColor(1, 1, 1, 1)
+
+	--for the option to set the mode
+	lg.setColor(checkB.r, checkB.g, checkB.b)
+	lg.rectangle("fill", checkB.x, checkB.y, checkB.w, checkB.h)
+	lg.setColor(0, 0, 0, 1)
+	lg.print("pseudo 3d fps mode: ", 10, 50)
 end
 
 function menu:mousepressed(x, y, key)
-	if key == 1 then
+	if key == 1 and x >= lg.getWidth()/2 and x <= (lg.getWidth()/2) + 50 and y >= lg.getHeight()/2 and y <= (lg.getHeight()/2) + 50 then
+		mode(set_mode)
 		self.setScene("play")
+	end
+	if set_mode == false and key == 1 and x >= checkB.x and x <= checkB.x + checkB.w and y >= checkB.y and y <= checkB.y + checkB.h then
+		set_mode = true
+		get_and_set_mode = true
+		checkB.r = 0
+		checkB.g = 1
+
+	elseif set_mode == true and key == 1 and x >= checkB.x and x <= checkB.x + checkB.w and y >= checkB.y and y <= checkB.y + checkB.h then
+		set_mode = false
+		get_and_set_mode = false
+		checkB.r = 1
+		checkB.g = 0
 	end
 end
 
