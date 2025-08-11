@@ -1,7 +1,8 @@
 local SceneryInit = require("core/scenery")
 local scenery = SceneryInit(
 	{ path = "scene/menu_scene"; key = "menu"; default = "true"; },
-	{ path = "scene/play_scene"; key = "play"; }
+	{ path = "scene/play_scene"; key = "play"; },
+	{ path = "scene/play_scene2"; key = "play2"; }
 )
 
 function love.load()

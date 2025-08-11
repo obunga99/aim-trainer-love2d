@@ -41,18 +41,19 @@ end
 
 function menu:mousepressed(x, y, key)
 	if key == 1 and x >= lg.getWidth()/2 and x <= (lg.getWidth()/2) + 50 and y >= lg.getHeight()/2 and y <= (lg.getHeight()/2) + 50 then
-		mode(set_mode)
-		self.setScene("play")
+		if set_mode == false then
+			self.setScene("play")
+		elseif set_mode == true then
+			self.setScene("play2")
+		end
 	end
 	if set_mode == false and key == 1 and x >= checkB.x and x <= checkB.x + checkB.w and y >= checkB.y and y <= checkB.y + checkB.h then
 		set_mode = true
-		get_and_set_mode = true
 		checkB.r = 0
 		checkB.g = 1
 
 	elseif set_mode == true and key == 1 and x >= checkB.x and x <= checkB.x + checkB.w and y >= checkB.y and y <= checkB.y + checkB.h then
 		set_mode = false
-		get_and_set_mode = false
 		checkB.r = 1
 		checkB.g = 0
 	end
