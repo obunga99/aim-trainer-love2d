@@ -1,6 +1,6 @@
-local menu = {}
+local menu = {} --makes the menu object for scenery to work
 local set_mode = false
-local checkB = {
+local checkB = { --makes a button calss
 	x = 150,
 	y = 50,
 	w = 20,
@@ -15,16 +15,16 @@ local checkB = {
 function menu:load(args)
 	require("core/timer")
 	require("core/get_mode")
-	lg = love.graphics
+	lg = love.graphics --love.graphics shortcut cuz im lazy
 end
 
 function menu:update(dt)
 end
 
 function menu:draw()
-	love.mouse.setRelativeMode(false)
-	lg.setBackgroundColor(1, 1, 1)
-	lg.setColor(0, 0, 0, 1)
+	love.mouse.setRelativeMode(false) --hides the mouse and centers it
+	lg.setBackgroundColor(1, 1, 1) -- sets bg color to white
+	lg.setColor(0, 0, 0, 1) --everything else is for the ui and buttons
 	lg.rectangle("fill", lg.getWidth()/2, lg.getHeight()/2, 50, 50)
 	lg.setColor(1, 1, 1, 1)
 	lg.print("Play", lg.getWidth()/2, lg.getHeight()/2)
@@ -39,7 +39,7 @@ function menu:draw()
 	lg.print("pseudo 3d fps mode: ", 10, 50)
 end
 
-function menu:mousepressed(x, y, key)
+function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked then will execute a code acordingly
 	if key == 1 and x >= lg.getWidth()/2 and x <= (lg.getWidth()/2) + 50 and y >= lg.getHeight()/2 and y <= (lg.getHeight()/2) + 50 then
 		if set_mode == false then
 			self.setScene("play")
@@ -60,4 +60,4 @@ function menu:mousepressed(x, y, key)
 end
 
 
-return menu
+return menu --returns a menu table
