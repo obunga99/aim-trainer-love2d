@@ -1,27 +1,37 @@
 score = {}
 
-score.timer = 40
 score.hits = 0
 score.miss = 0
 score.total = 0
-score.acc = 0
 score.best = 0
 
+local timer = 40
+local acc = 0
 
-function draw_score()
-	lg.setColor(0, 0 ,0 , 1)
-	lg.print("time: "..score.timer, mouse_x - 100, mouse_y - (lg.getHeight()/2), 0, 2, 2)
-	lg.print("hits: "..score.hits, mouse_x - (lg.getWidth()/2), mouse_y + 20)
-	lg.print("miss: "..score.miss, mouse_x - (lg.getWidth()/2), mouse_y + 30)
-	lg.print("accuracy: "..score.acc, mouse_x - (lg.getWidth()/2), mouse_y + 40)
-	lg.print("most hits: "..score.best, mouse_x - (lg.getWidth()/2), mouse_y - (lg.getHeight()/2), 0, 2, 2)
+function draw_score(judgement)
+	if judgement == true then
+		lg.setColor(0, 0 ,0 , 1)
+		lg.print("time: "..string.format("%.2f", timer), mouse_x - 100, mouse_y - (lg.getHeight()/2), 0, 2, 2)
+		lg.print("hits: "..score.hits, mouse_x - (lg.getWidth()/2), mouse_y + 20)
+		lg.print("miss: "..score.miss, mouse_x - (lg.getWidth()/2), mouse_y + 30)
+		lg.print("accuracy: "..string.format("%.2f", acc), mouse_x - (lg.getWidth()/2), mouse_y + 40)
+		lg.print("most hits: "..score.best, mouse_x - (lg.getWidth()/2), mouse_y - (lg.getHeight()/2), 0, 2, 2)
+	elseif judgement == false then
+		lg.setColor(0, 0 ,0 , 1)
+		lg.print("time: "..string.format("%.2f", timer), lg.getWidth()/2, 10, 0, 2, 2)
+		lg.print("hits: "..score.hits, 10, 50)
+		lg.print("miss: "..score.miss, 10, 60)
+		lg.print("accuracy: "..string.format("%.2f", acc), 10, 10, 0, 2, 2)
+		lg.print("most hits: "..score.best, 10, 70, 0, 1, 1)
+	end
+
 end
 
 function update_score(dt)
 	local isHit = false
-	score.timer = score.timer - dt
+	timer = timer - dt
 	
-	if score.timer <= 0 then 
+	if timer <= 0 then 
 		
 
 		if score.hits > score.best then
@@ -31,7 +41,7 @@ function update_score(dt)
 
 		
 		isHit = true	
-		score.timer = 40
+		timer = 40
 		score.hits = 0
 		score.miss = 0	
 		score.total = 0
@@ -41,9 +51,9 @@ function update_score(dt)
 
 	score.total = score.hits + score.miss
 	if score.total == 0 then
-		score.acc = 0
+		acc = 0
 	elseif score.total >= 0 then
-		score.acc = (score.hits / score.total) * 100
+		acc = (score.hits / score.total) * 100
 	end
 
 end

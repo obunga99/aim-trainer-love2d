@@ -1,5 +1,6 @@
 local play = {}
 local crosshair
+local judgement = false
 function play:load()	--declaration/initialization of variables/files
 	require("/core/cursor")
 	require("/core/targets")
@@ -25,9 +26,9 @@ function play:update(dt)
 
 end
 function play:draw()
-	lg.setBackgroundColor(1, 1, 1)
+	set_background()
 	draw_target() --draws the target to the screen
-	draw_score()--draws the timers and stuff
+	draw_score(judgement)--draws the timers and stuff
 
 end
 	

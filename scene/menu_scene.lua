@@ -22,12 +22,12 @@ function menu:update(dt)
 end
 
 function menu:draw()
-	love.mouse.setRelativeMode(false) --hides the mouse and centers it
+	love.mouse.setRelativeMode(false) 
 	lg.setBackgroundColor(1, 1, 1) -- sets bg color to white
 	lg.setColor(0, 0, 0, 1) --everything else is for the ui and buttons
-	lg.rectangle("fill", lg.getWidth()/2, lg.getHeight()/2, 50, 50)
+	lg.rectangle("fill", 200, lg.getHeight()/2, 100, 50)
 	lg.setColor(1, 1, 1, 1)
-	lg.print("Play", lg.getWidth()/2, lg.getHeight()/2)
+	lg.print("Play", 230, (lg.getHeight()/2) + 20)
 	lg.setColor(0, 0, 0, 1)
 	lg.print("most hits: "..score.best, 10, 10)
 	lg.setColor(1, 1, 1, 1)
@@ -40,7 +40,7 @@ function menu:draw()
 end
 
 function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked then will execute a code acordingly
-	if key == 1 and x >= lg.getWidth()/2 and x <= (lg.getWidth()/2) + 50 and y >= lg.getHeight()/2 and y <= (lg.getHeight()/2) + 50 then
+	if key == 1 and x >= 200 and x <= 300 and y >= lg.getHeight()/2 and y <= (lg.getHeight()/2) + 50 then
 		if set_mode == false then
 			self.setScene("play")
 		elseif set_mode == true then
