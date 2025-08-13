@@ -1,11 +1,15 @@
 target = {} --declare a table for the targets
 isHit = false
+range_x = 100
+range_y = 100
+target_ammount = 1
+target_size = 34
 function create_target() --a for loop to add a target object from the target table inside another table
-	for i = 1, 3 do
+	for i = 1, target_ammount do
 		target[i] = {
-			x = math.random((lg.getWidth()/2) - 100, (lg.getWidth()/2) + 100),--this make it go to the middle theoretically
-			y = math.random((lg.getHeight()/2) - 100, (lg.getHeight()/2) + 100),--well this one is the actual one that goes in the middle
-			r = 34
+			x = math.random((lg.getWidth()/2) - range_x, (lg.getWidth()/2) + range_x),--this make it go to the middle theoretically
+			y = math.random((lg.getHeight()/2) - range_y, (lg.getHeight()/2) + range_y),--well this one is the actual one that goes in the middle
+			r = target_size
 		
 		}
 	end
@@ -37,8 +41,8 @@ function hitscan(x, y, key, distance) --method for scanning whenever the mouse c
 		for i, target in ipairs(target) do --s the whole thing inside a forloop to make sure every target gets involved or some shit
 			local distance = math.sqrt((x - target.x)^2 + (y - target.y)^2)
 			if key == 1 and distance <= target.r and x >= 0 and x <= lg.getWidth() and y >= 0 and y <= lg.getHeight()then --checks the collision with the mouse and a target through aab
-			target.x = math.random((lg.getWidth()/2) - 100, (lg.getWidth()/2) + 100) -- puts it again randomly
-			target.y = math.random((lg.getHeight()/2) - 100, (lg.getHeight()/2) + 100)
+			target.x = math.random((lg.getWidth()/2) - range_x, (lg.getWidth()/2) + range_x) -- puts it again randomly
+			target.y = math.random((lg.getHeight()/2) - range_y, (lg.getHeight()/2) + range_y)
 			score.hits = score.hits + 1
 			isHit = true
 			break --breaks after it found the target that has been shot or something
