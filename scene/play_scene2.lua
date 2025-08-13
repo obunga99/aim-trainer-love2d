@@ -8,7 +8,7 @@ function play2:load()	--declaration/initialization of variables/files
 	crosshair = lg.newImage("cursor/cur.png")
 	camera = require("/libs/camera")
 	lg = love.graphics
-	crosshair = lg.newImage("/cursor/cur.png")
+	crosshair = lg.newImage("/cursor/cur2.png")
 	distance = 0
 	create_target() --method from targets.lua for instantiating 5 targets
 	camera = camera()
