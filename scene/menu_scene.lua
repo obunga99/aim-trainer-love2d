@@ -13,7 +13,7 @@ local checkB = { --makes a button calss
 
 local checkB2 = { --makes a button calss
 	x = 150,
-	y = 70,
+	y = 80,
 	w = 20,
 	h = 20,
 	r = 1,
@@ -25,7 +25,7 @@ local checkB2 = { --makes a button calss
 
 function menu:load(args)
 	require("core/timer")
-	require("core/get_mode")
+	--require("core/get_mode")
 	lg = love.graphics --love.graphics shortcut cuz im lazy
 end
 
@@ -53,7 +53,7 @@ function menu:draw()
 	lg.setColor(checkB2.r, checkB2.g, checkB2.b)
 	lg.rectangle("fill", checkB2.x, checkB2.y, checkB2.w, checkB2.h)
 	lg.setColor(0, 0, 0, 1)
-	lg.print("mobile mode: ", 10, 70)
+	lg.print("mobile mode: ", 10, 80)
 end
 
 function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked then will execute a code acordingly
@@ -68,13 +68,13 @@ function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked 
 	end
 	if set_mode == false and key == 1 and x >= checkB.x and x <= checkB.x + checkB.w and y >= checkB.y and y <= checkB.y + checkB.h then
 		set_mode = true
-		checkB.r = 1
-		checkB.g = 0
+		checkB.r = 0
+		checkB.g = 1
 
 	elseif set_mode == true and key == 1 and x >= checkB.x and x <= checkB.x + checkB.w and y >= checkB.y and y <= checkB.y + checkB.h then
 		set_mode = false
-		checkB.r = 0
-		checkB.g = 1
+		checkB.r = 1
+		checkB.g = 0
 	
 	elseif  mobile_mode == false and key == 1 and x >= checkB2.x and x <= checkB2.x + checkB2.w and y >= checkB2.y and y <= checkB2.y + checkB2.h then
 		mobile_mode = true
