@@ -2,7 +2,8 @@ local SceneryInit = require("core/scenery") --gets the scenery library
 local scenery = SceneryInit( --initializes the scene manager
 	{ path = "scene/menu_scene"; key = "menu"; default = "true"; },
 	{ path = "scene/play_scene"; key = "play"; },
-	{ path = "scene/play_scene2"; key = "play2"; } --asigns a path to all the scenes and and also asigns a name
+	{ path = "scene/play_scene2"; key = "play2"; },
+	{ path = "scene/play_scene3"; key = "play3"; }--asigns a path to all the scenes and and also asigns a name
 )
 
 function love.load()
@@ -20,4 +21,8 @@ end
 
 function love.mousepressed(x, y, key)
 	scenery:mousepressed(x, y, key)
+end
+
+function love.touchpressed(x, y)
+	scenery:touchpressed(x, y)
 end
