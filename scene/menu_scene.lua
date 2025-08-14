@@ -68,21 +68,25 @@ function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked 
 	end
 	if set_mode == false and key == 1 and x >= checkB.x and x <= checkB.x + checkB.w and y >= checkB.y and y <= checkB.y + checkB.h then
 		set_mode = true
-		checkB.r = 0
-		checkB.g = 1
-e	elseif set_mode == true and key == 1 and x >= checkB.x and x <= checkB.x + checkB.w and y >= checkB.y and y <= checkB.y + checkB.h then
-		set_mode = false
 		checkB.r = 1
 		checkB.g = 0
-	end
+
+	elseif set_mode == true and key == 1 and x >= checkB.x and x <= checkB.x + checkB.w and y >= checkB.y and y <= checkB.y + checkB.h then
+		set_mode = false
+		checkB.r = 0
+		checkB.g = 1
 	
-	if mobile_mode == false and key == 1 and x >= checkB2.x and x <= checkB2.x + checkB2.w and y >= checkB2.y and y <= checkB2.y + checkB2.h then
+	elseif  mobile_mode == false and key == 1 and x >= checkB2.x and x <= checkB2.x + checkB2.w and y >= checkB2.y and y <= checkB2.y + checkB2.h then
 		mobile_mode = true
 		checkB2.r = 0
 		checkB2.g = 1
+	elseif mobile_mode == true and key == 1 and x >= checkB2.x and x <= checkB2.x + checkB2.w and y >= checkB2.y and y <= checkB2.y + checkB2.h then
+                mobile_mode = false
+                checkB2.r = 1
+                checkB2.g = 0
 	end
 
-nd
+end
 
 
 return menu --returns a menu table

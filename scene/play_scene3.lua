@@ -1,7 +1,7 @@
-local play2 = {}
+local play3 = {}
 local crosshair
 local judgement = true
-function play2:load()	--declaration/initialization of variables/files
+function play3:load()	--declaration/initialization of variables/files
 	require("/core/targets")
 	require("/core/timer")
 	require("/core/cursor")
@@ -17,7 +17,7 @@ function play2:load()	--declaration/initialization of variables/files
 
 end
 
-function play2:update(dt)
+function play3:update(dt)
 
 	stabilize_cursor()
 	camera:lookAt(mouse_x, mouse_y) --lock onto the mouse for the pfp mode
@@ -31,7 +31,7 @@ function play2:update(dt)
 
 
 end
-function play2:draw()
+function play3:draw()
 	camera:attach()
 	set_background()
 	draw_target() --draws the target to the screen
@@ -46,10 +46,10 @@ function play2:draw()
 	camera:detach()
 end
 	
-function play2:touchpressed(x, y)
+function play3:touchpressed(x, y)
 	hitscan2(x, y, distance)
 end
 
 
 
-return play2
+return play3
