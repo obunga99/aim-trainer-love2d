@@ -18,9 +18,8 @@ function play2:load()	--declaration/initialization of variables/files
 end
 
 function play2:update(dt)
-
 	stabilize_cursor()
-	camera:lookAt(mouse_x, mouse_y) --lock onto the mouse for the pfp mode
+	camera:lookAt(mouse_x , mouse_y) --lock onto the mouse for the pfp mode
 
 	local isTrue = update_score(dt)--determines wether to make isTrue a true
 	if isTrue == true then
@@ -41,7 +40,9 @@ function play2:draw()
 
 	camera:detach()
 end
-	
+
+function play2:mousemoved(x, y, dx, dy)
+end
 function play2:mousepressed(x, y, key)
 	hitscan(x, y, key, distance)--the function for shooting the target
 end

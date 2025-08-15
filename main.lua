@@ -23,6 +23,9 @@ function love.mousepressed(x, y, key)
 	scenery:mousepressed(x, y, key)
 end
 
+function love.mousemoved(x, y, dx, dy)
+	scenery:mousemoved(x, y, dx, dy)
+end
 function love.touchpressed(x, y)
 	scenery:touchpressed(x, y)
 end
