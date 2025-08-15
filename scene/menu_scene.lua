@@ -27,6 +27,7 @@ function menu:load(args)
 	require("core/timer")
 	--require("core/get_mode")
 	lg = love.graphics --love.graphics shortcut cuz im lazy
+	love.mouse.setX = 0
 end
 
 function menu:update(dt)

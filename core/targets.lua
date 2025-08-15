@@ -1,9 +1,15 @@
 target = {} --declare a table for the targets
 isHit = false
-range_x = 100
-range_y = 100
-target_ammount = 3
-target_size = 34
+range_x = 200
+range_y = 200
+target_r = 0
+target_g = 1
+target_b = 0
+target_ammount = 6
+target_size = 6
+bg_r = 0.5
+bg_g = 0.5
+bg_b = 0.5
 function create_target() --a for loop to add a target object from the target table inside another table
 	for i = 1, target_ammount do
 		target[i] = {
@@ -16,7 +22,7 @@ function create_target() --a for loop to add a target object from the target tab
 end
 
 function set_background()
-	lg.setBackgroundColor(1, 1, 1)
+	lg.setBackgroundColor(bg_r, bg_g, bg_b)
 	lg.setColor(0, 0, 0)
 	lg.rectangle("line", 0, 0, lg.getWidth(), lg.getHeight())
 end
@@ -26,7 +32,7 @@ function draw_target() --draws the target on the screen
 
 
 for i, target in ipairs(target) do --draws each of the n ammount of targets
-		lg.setColor(1, 0, 0, 1) --sets the color to red
+		lg.setColor(target_r, target_g, target_b, 1) --sets the color to red
 		lg.circle("fill", target.x, target.y, target.r)
 		lg.setColor(0, 0, 0, 1)
 		lg.circle("line", target.x, target.y, target.r)

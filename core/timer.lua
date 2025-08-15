@@ -9,7 +9,7 @@ total_ttk = 0
 avg_ttk = 0
 ttk = 0
 local max_time = 10
-local timer = 10
+local timer = 60
 local acc = 0
 
 function draw_score(judgement)
@@ -50,7 +50,7 @@ function update_score(dt)
 
 		
 		isHit = true	
-		timer = max_timer
+		timer = 60
 		score.hits = 0
 		score.miss = 0	
 		score.total = 0
