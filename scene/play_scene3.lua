@@ -38,16 +38,12 @@ function play3:draw()
 
 	draw_cursor(crosshair)
 	draw_score(judgement)--draws the timers and stuff
-	lg.setColor(0, 0, 0, 0.5)
-	lg.rectangle("fill", 30, 30, 70, 40)
-	lg.setColor(1, 1, 1, 1)
-	lg.print("FIRE", 30, 30, 0, 1.5, 1.5)
 
 	camera:detach()
 end
 	
-function play3:touchpressed(x, y)
-	hitscan2(x, y, distance)
+function play3:mousepressed(x, y, key)
+	hitscan_mobile(x, y, key, distance)--the function for shooting the target
 end
 
 

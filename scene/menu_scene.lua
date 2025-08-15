@@ -62,7 +62,7 @@ function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked 
 			self.setScene("play")
 		elseif set_mode == true then
 			self.setScene("play2")
-		elseif mobile_mode == true then
+		elseif set_mode == true and moble_mode == true then
 			self.setScene("play3")
 		end
 	end
@@ -76,15 +76,19 @@ function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked 
 		checkB.r = 1
 		checkB.g = 0
 	
-	elseif  mobile_mode == false and key == 1 and x >= checkB2.x and x <= checkB2.x + checkB2.w and y >= checkB2.y and y <= checkB2.y + checkB2.h then
+	elseif  mobile_mode == false and set_mode == false and key == 1 and x >= checkB2.x and x <= checkB2.x + checkB2.w and y >= checkB2.y and y <= checkB2.y + checkB2.h then
 		mobile_mode = true
+		set_mode = true
 		checkB2.r = 0
 		checkB2.g = 1
-	elseif mobile_mode == true and key == 1 and x >= checkB2.x and x <= checkB2.x + checkB2.w and y >= checkB2.y and y <= checkB2.y + checkB2.h then
-                mobile_mode = false
-                checkB2.r = 1
-                checkB2.g = 0
-	end
+
+	elseif  mobile_mode == true and set_mode == true and key == 1 and x >= checkB2.x and x <= checkB2.x + checkB2.w and y >= checkB2.y and y <= checkB2.y + checkB2.h then
+		mobile_mode = false
+		set_mode = false
+		checkB2.r = 1
+		checkB2.g = 0
+
+	end	
 
 end
 

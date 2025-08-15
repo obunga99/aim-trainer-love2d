@@ -29,6 +29,7 @@ function play:draw()
 	set_background()
 	draw_target() --draws the target to the screen
 	draw_score(judgement)--draws the timers and stuff
+	lg.print("2d mode", mouse_x - mouse_x, mouse_y - mouse_y, 0, 1, 1)
 
 end
 	

@@ -1,9 +1,9 @@
 target = {} --declare a table for the targets
 isHit = false
-range_x = 100
+range_x = 300
 range_y = 100
-target_ammount = 3
-target_size = 34
+target_ammount = 6
+target_size = 6
 function create_target() --a for loop to add a target object from the target table inside another table
 	for i = 1, target_ammount do
 		target[i] = {
@@ -65,14 +65,14 @@ end
 
 end
 
-function hitscan2(x, y, distance) --method for scanning whenever the mouse clicks one of the targets 
-	if key == 1 then
+
+function hitscan_mobile(x, y, distance) --method for scanning whenever the mouse clicks one of the targets 
 		isHit = false
 
 
 		for i, target in ipairs(target) do --s the whole thing inside a forloop to make sure every target gets involved or some shit
-			local distance = math.sqrt((mouse_x - target.x)^2 + (mouse_y - target.y)^2)
-			if x >= 30 and x <= 100 and y >= 30 and y <= 70 and distance <= target.r and mouse_x >= 0 and mouse_x <= lg.getWidth() and mouse_y >= 0 and mouse_y <= lg.getHeight() then --checks the collision with the mouse and a target through aab
+			local distance = math.sqrt((x - target.x)^2 + (y - target.y)^2)
+			if distance <= target.r and x >= 0 and x <= lg.getWidth() and y >= 0 and y <= lg.getHeight()then --checks the collision with the mouse and a target through aab
 				target.x = math.random((lg.getWidth()/2) - range_x, (lg.getWidth()/2) + range_x) -- puts it again randomly
 				target.y = math.random((lg.getHeight()/2) - range_y, (lg.getHeight()/2) + range_y)
 				score.hits = score.hits + 1
@@ -93,7 +93,5 @@ function hitscan2(x, y, distance) --method for scanning whenever the mouse click
 			score.miss = score.miss + 1
 		end
 end
-end
-
 
 

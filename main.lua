@@ -3,7 +3,7 @@ local scenery = SceneryInit( --initializes the scene manager
 	{ path = "scene/menu_scene"; key = "menu"; default = "true"; },
 	{ path = "scene/play_scene"; key = "play"; },
 	{ path = "scene/play_scene2"; key = "play2"; },
-	{ path = "scene/play_scene3"; key = "play3"; }--asigns a path to all the scenes and and also asigns a name
+	{ path = "scene/mobile_scene"; key = "play3"; }--asigns a path to all the scenes and and also asigns a name
 )
 
 function love.load()
