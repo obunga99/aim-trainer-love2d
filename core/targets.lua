@@ -15,7 +15,7 @@ function create_target() --a for loop to add a target object from the target tab
 	end
 end
 
-function set_background()
+function set_background() --sets bg color
 	lg.setBackgroundColor(1, 1, 1)
 	lg.setColor(0, 0, 0)
 	lg.rectangle("line", 0, 0, lg.getWidth(), lg.getHeight())

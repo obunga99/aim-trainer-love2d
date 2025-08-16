@@ -58,6 +58,7 @@ end
 
 function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked then will execute a code acordingly
 	if key == 1 and x >= 200 and x <= 300 and y >= lg.getHeight()/2 and y <= (lg.getHeight()/2) + 50 then
+		total_ttk = 0
 		if set_mode == false then
 			self.setScene("play")
 		elseif set_mode == true then
