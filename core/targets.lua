@@ -6,10 +6,10 @@ target_r = 0
 target_g = 1
 target_b = 0
 target_ammount = 3
-target_size = 30
-bg_r = 0.5
-bg_g = 0.5
-bg_b = 0.5
+target_size = 27
+bg_r = 0.3
+bg_g = 0.3
+bg_b = 0.3
 function create_target() --a for loop to add a target object from the target table inside another table
 	for i = 1, target_ammount do
 		target[i] = {
