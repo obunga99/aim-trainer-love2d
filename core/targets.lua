@@ -1,12 +1,12 @@
 target = {} --declare a table for the targets
 isHit = false
-range_x = 100
-range_y = 100
+range_x = 150
+range_y = 150
 target_r = 0
 target_g = 1
 target_b = 0
-target_ammount = 3
-target_size = 27
+target_ammount = 6
+target_size = 6
 bg_r = 0.3
 bg_g = 0.3
 bg_b = 0.3

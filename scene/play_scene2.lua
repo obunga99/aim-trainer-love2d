@@ -4,6 +4,7 @@ local judgement = true
 function play2:load()	--declaration/initialization of variables/files
 	require("/core/targets")
 	require("/core/timer")
+	require("/core/exit_button")
 	require("/core/cursor")
 	crosshair = lg.newImage("cursor/cur.png")
 	camera = require("/libs/camera")
@@ -37,15 +38,22 @@ function play2:draw()
 
 	draw_cursor(crosshair)
 	draw_score(judgement)--draws the timers and stuff
+	
 
+
+
+	draw_ebutton_pfp()
 	camera:detach()
 end
 
-function play2:mousemoved(x, y, dx, dy)
-end
+
 function play2:mousepressed(x, y, key)
+	if key == "1" and x >= (button_x/2 + mouse_x) and x <= ((button_x/2) + 50 + mouse_x) and y >= mouse_y + button_y and y <= mouse_y + button_y + 40 then
+		self.setScene("menu")
+	end
+
 	hitscan(x, y, key, distance)--the function for shooting the target
-end
+	end
 
 
 

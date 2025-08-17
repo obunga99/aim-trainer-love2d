@@ -3,6 +3,7 @@ local crosshair
 local judgement = false
 function play:load()	--declaration/initialization of variables/files
 	require("/core/cursor")
+	require("/core/exit_button")
 	require("/core/targets")
 	require("/core/timer")
 	crosshair = lg.newImage("cursor/cur.png")
@@ -29,11 +30,18 @@ function play:draw()
 	set_background()
 	draw_target() --draws the target to the screen
 	draw_score(judgement)--draws the timers and stuff
+	
 
+
+
+	draw_ebutton()
 end
 	
 function play:mousepressed(x, y, key)
 	hitscan(x, y, key, distance)--the function for shooting the target
+	if key == 1 and x >= button_x and x <= button_x + 50 and y >= 10 and y <= 40 then
+		self.setScene("menu")
+	end
 end
 
 

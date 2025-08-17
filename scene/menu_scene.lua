@@ -51,10 +51,6 @@ function menu:draw()
 	lg.setColor(0, 0, 0, 1)
 	lg.print("pseudo 3d fps mode: ", 10, 50)
 
-	lg.setColor(checkB2.r, checkB2.g, checkB2.b)
-	lg.rectangle("fill", checkB2.x, checkB2.y, checkB2.w, checkB2.h)
-	lg.setColor(0, 0, 0, 1)
-	lg.print("mobile mode: ", 10, 80)
 end
 
 function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked then will execute a code acordingly
@@ -63,8 +59,6 @@ function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked 
 			self.setScene("play")
 		elseif set_mode == true then
 			self.setScene("play2")
-		elseif mobile_mode == true then
-			self.setScene("play3")
 		end
 	end
 	if set_mode == false and key == 1 and x >= checkB.x and x <= checkB.x + checkB.w and y >= checkB.y and y <= checkB.y + checkB.h then
@@ -77,14 +71,6 @@ function menu:mousepressed(x, y, key) --checks if any of the buttons is clicked 
 		checkB.r = 1
 		checkB.g = 0
 	
-	elseif  mobile_mode == false and key == 1 and x >= checkB2.x and x <= checkB2.x + checkB2.w and y >= checkB2.y and y <= checkB2.y + checkB2.h then
-		mobile_mode = true
-		checkB2.r = 0
-		checkB2.g = 1
-	elseif mobile_mode == true and key == 1 and x >= checkB2.x and x <= checkB2.x + checkB2.w and y >= checkB2.y and y <= checkB2.y + checkB2.h then
-                mobile_mode = false
-                checkB2.r = 1
-                checkB2.g = 0
 	end
 
 end
