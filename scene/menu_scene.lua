@@ -31,10 +31,23 @@ function menu:load(args)
 end
 
 function menu:update(dt)
+	local timer = 0
+	timer = timer + dt
+	local hits = 0
+	local misses = 1
+	local total_shots = 0
+	avg = 0
+	if timer >= 1 then
+		hits = hits + 1
+		avg = (hits/total_shots) * 100
+	end
+	
+
 end
 
 function menu:draw()
 	love.mouse.setRelativeMode(false) 
+	lg.print(""..string.format("%.4f", avg), lg.getWidth()/2, 10, 0, 1, 1)
 	lg.setBackgroundColor(1, 1, 1) -- sets bg color to white
 	lg.setColor(0, 0, 0, 1) --everything else is for the ui and buttons
 	lg.rectangle("fill", 200, lg.getHeight()/2, 100, 50)
