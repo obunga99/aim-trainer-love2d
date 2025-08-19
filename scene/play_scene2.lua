@@ -48,7 +48,7 @@ end
 
 
 function play2:mousepressed(x, y, key)
-	if key == "1" and x >= (button_x/2 + mouse_x) and x <= ((button_x/2) + 50 + mouse_x) and y >= mouse_y + button_y and y <= mouse_y + button_y + 40 then
+	if key == 1 and x >= pfp_exit_button and x <= pfp_exit_button + 50 and y >= pfp_exit_button_y and y <= pfp_exit_button_y + 40 then
 		self.setScene("menu")
 	end
 

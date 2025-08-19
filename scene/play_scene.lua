@@ -39,7 +39,7 @@ end
 	
 function play:mousepressed(x, y, key)
 	hitscan(x, y, key, distance)--the function for shooting the target
-	if key == 1 and x >= button_x and x <= button_x + 50 and y >= 10 and y <= 40 then
+	if key == 1 and x >= exit_button_x and x <= exit_button_x + 50 and y >= 10 and y <= 40 then
 		self.setScene("menu")
 	end
 end
