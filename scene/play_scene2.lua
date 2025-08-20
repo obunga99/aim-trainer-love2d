@@ -9,6 +9,7 @@ function play2:load()	--declaration/initialization of variables/files
 	crosshair = lg.newImage("cursor/cur.png")
 	camera = require("/libs/camera")
 	lg = love.graphics
+	d_key_timer = 0
 	crosshair = lg.newImage("/cursor/cur2.png")
 	distance = 0
 	create_target() --method from targets.lua for instantiating 5 targets
@@ -26,11 +27,19 @@ function play2:update(dt)
 	if isTrue == true then
 		isTrue = false
 		self.setScene("menu")--switches to menu_scene if true
-
 	end
-
-
+	if love.keypressed("escape") then
+		d_key_timer = d_key_timer + dt
+		if love.keypressed("escape")and d_key_timer <= 0.5 then
+			d_key_timer = 0
+			self.setScene("menu")
+		end
+	end
 end
+
+
+
+
 function play2:draw()
 	camera:attach()
 	set_background()
@@ -42,19 +51,17 @@ function play2:draw()
 
 
 
-	draw_ebutton_pfp()
 	camera:detach()
 end
 
 
 function play2:mousepressed(x, y, key)
-	if key == 1 and x >= pfp_exit_button and x <= pfp_exit_button + 50 and y >= pfp_exit_button_y and y <= pfp_exit_button_y + 40 then
-		self.setScene("menu")
-	end
-
+	
 	hitscan(x, y, key, distance)--the function for shooting the target
-	end
+end
 
-
-
+function play2:keypressed(key)
+end
+	
+	
 return play2

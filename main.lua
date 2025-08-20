@@ -28,3 +28,7 @@ end
 function love.touchpressed(x, y)
 	scenery:touchpressed(x, y)
 end
+
+function love.keypressed(key)
+	scenery:keypressed(key)
+end

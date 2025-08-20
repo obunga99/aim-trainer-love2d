@@ -14,6 +14,13 @@ just want to inform you about that.
   
   
 (3d mode)you can use any crosshair make tool like the kovaaks crosshair maker which the size would be 11x11 to 30x30 if you want to increase in size.  
+  
+  
+  
+To exit while playing on 2d mode just click the exit button on the top right of the screen.  
+  
+To exit while playing on pfp mode just press ESCAPE on your keyboard.  
+
 
 todo:  
     scenario customizer(semi working)  
