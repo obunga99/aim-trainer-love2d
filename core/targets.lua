@@ -1,7 +1,7 @@
 target = {} --declare a table for the targets
 isHit = false
-range_x = 150
-range_y = 150
+range_x = 120
+range_y = 120
 target_r = 0
 target_g = 1
 target_b = 0

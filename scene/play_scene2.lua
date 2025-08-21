@@ -30,7 +30,7 @@ function play2:update(dt)
 	end
 	if love.keypressed("escape") then
 		d_key_timer = d_key_timer + dt
-		if love.keypressed("escape")and d_key_timer <= 0.5 then
+		if love.keypressed("escape") and d_key_timer <= 0.5 then
 			d_key_timer = 0
 			self.setScene("menu")
 		end
